@@ -1,0 +1,51 @@
+#+TITLE: dired-atool-transient
+
+This package provides a transient wrapper for atool in *Dired* modes.
+
+* Usage
+Mark some files in *Dired* modes and run one of these commands:
+
++ ~dired-atool-transient-pack~: Run ~atool~'s ~--add~ (~apack~) command.
++ ~dired-atool-transient-unpack~: Run ~atool~'s ~--extract~ (~aunpack~) or
+  ~--extract-to=~ command.
+
+* Installation
+** Nix
+This repo is a nix flake.  You can just add ~overlays.default~ output to your
+nixpkgs overlays.
+
+#+begin_src nix
+{
+  inputs.dired-atool-transient.url = "github:xFA25E/dired-atool-transient";
+  outputs = { self, dired-atool-transient, nixpkgs }: let
+    pkgs = import nixpkgs {
+      system = "your-system";
+      overlays = [ dired-atool-transient.overlays.default ];
+    };
+  in {
+    # YOUR OUTPUTS
+  };
+}
+#+end_src
+
+** Package manager
+If you've installed it with your package manager, you're done.
+~dired-atool-transient-pack~ and ~dired-atool-transient-unpack~ are autoloaded,
+so you can call them right away.
+
+** Manual
+Put /dired-atool-transient.el/ in your load-path, and put the following in your
+init file:
+
+#+BEGIN_SRC elisp
+(require 'dired-atool-transient)
+#+END_SRC
+
+* Credits
+This package would not have been possible without the [[https://www.nongnu.org/atool/][atool]] program.
+
+* Development
+Bug reports, feature requests, suggestions — oh my!
+
+* License
+GPLv3

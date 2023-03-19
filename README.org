@@ -1,5 +1,7 @@
 #+TITLE: dired-atool-transient
 
+[[https://github.com/xFA25E/dired-atool-transient/actions/workflows/test.yml/badge.svg]]
+
 This package provides a transient wrapper for atool in *Dired* modes.
 
 * Usage
